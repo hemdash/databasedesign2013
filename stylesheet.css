@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+		background-image:url(background.jpg);
+		background-attachment:fixed;
+		background-repeat:repeat;
+}
+
+p, td, tr {font:Georgia, "Times New Roman", Times, serif;
+	color:#006;
+	font-size:14px;
+}
+
+h1 {font:Georgia, "Times New Roman", Times, serif;
+	color:#006;
+	font-size:24px;
+}
+
+.container {background-color:#FFF;
+opacity: .9;
+width:500px;
+border-color:#006;
+border-width:2px;
+border-style:solid;
+margin:5px;
+}

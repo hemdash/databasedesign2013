@@ -1,0 +1,485 @@
+Last login: Mon Apr  1 18:00:58 on ttys000
+172-26-204-97:~ Hayley$ ssh hm968@i6.cims.nyu.edu
+hm968@i6.cims.nyu.edu's password: 
+Last login: Mon Apr  1 18:01:12 2013 from 172-26-204-97.dynapool.nyu.edu
+You are using 0% of your 1.0G quota for /home/hm968.
+You are using 0% of your 1.0G quota for /web/hm968.
+hm968@i6[~]$ /usr/local/pkg/mysql/bin/mysql -hwarehouse -pfnppvg4r
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 883259 to server version: 5.1.34
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql> set password = password("hayleyisamazing");
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> exit
+Bye
+hm968@i6[~]$ echo $PATH
+/home/hm968/bin:/usr/local/bin:/opt/sunstudio/bin:/opt/bin:/opt/java/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/pathscale/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
+hm968@i6[~]$ cp .csrhc .cshrc.SAVE
+cp: cannot stat `.csrhc': No such file or directory
+hm968@i6[~]$ cp .cshrc .cshrc.SAVE
+hm968@i6[~]$ pico .cshrc
+hm968@i6[~]$ mysql -hwarehouse -phayleyisamazing hm968_db2
+ERROR 1044 (42000): Access denied for user 'hm968'@'%' to database 'hm968_db2'
+hm968@i6[~]$ logout
+Connection to i6.cims.nyu.edu closed.
+172-26-204-97:~ Hayley$ ssh hm968@i6.cims.nyu.edu
+hm968@i6.cims.nyu.edu's password: 
+Last login: Mon Apr  1 18:02:52 2013 from 172-26-204-97.dynapool.nyu.edu
+mysql You are using 0% of your 1.0G quota for /home/hm968.
+You are using 0% of your 1.0G quota for /web/hm968.
+hm968@i6[~]$ mysql -hwarehouse -phayleyisamazing hm968_db2
+ERROR 1044 (42000): Access denied for user 'hm968'@'%' to database 'hm968_db2'
+hm968@i6[~]$ mysql -hwarehouse -phayleyisamazing hm968_db_2
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 883269
+Server version: 5.1.34 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2012, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE TABLE course (
+    -> course_id int NOT NULL AUTO_INCREMENT,
+    -> course_title varchar(255) NOT NULL,
+    -> course_department int NOT NULL,
+    -> credit_hours float NOT NULL,
+    -> PRIMARY KEY (course_id)
+    -> FOREIGN KEY (course_department) REFERENCES departments(department_id)
+    -> ) ENGINE=InnoDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FOREIGN KEY (course_department) REFERENCES departments(department_id)
+) ENGINE=I' at line 7
+mysql> CREATE TABLE departments (
+    -> department_id int NOT NULL AUTO_INCREMENT,
+    -> department_name varchar(255) NOT NULL,
+    -> PRIMARY KEY (department_id)
+    -> ) ENGINE=InnoDB;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> CREATE TABLE course (
+    -> course_id int NOT NULL AUTO_INCREMENT,
+    -> course_title varchar(255) NOT NULL,
+    -> course_department int NOT NULL,
+    -> credit_hours float NOT NULL,
+    -> PRIMARY KEY (course_id)
+    -> FOREIGN KEY (course_department) REFERENCES departments(department_id)
+    -> ) ENGINE=InnoDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FOREIGN KEY (course_department) REFERENCES departments(department_id)
+) ENGINE=I' at line 7
+mysql> CREATE TABLE course (
+    -> course_id int NOT NULL AUTO_INCREMENT,
+    -> course_title varchar(255) NOT NULL,
+    -> course_department int NOT NULL,
+    -> credit_hours float NOT NULL,
+    -> PRIMARY KEY (course_id)
+    -> FOREIGN KEY (course_department) REFERENCES departments(department_id)
+    -> ) ENGINE-InnoDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FOREIGN KEY (course_department) REFERENCES departments(department_id)
+) ENGINE-I' at line 7
+mysql> CREATE TABLE course (
+    -> course_id NOT NULL AUTO_INCREMENT,
+    -> course_title varchar(255) NOT NULL,
+    -> course_department int DEFAULT NULL,
+    -> credit_hours float NOT NULL,
+    -> PRIMARY KEY (course_id)
+    -> FOREIGN KEY (course_department) REFERENCES departments(department_id)
+    -> ) ENGINE=InnoDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NOT NULL AUTO_INCREMENT,
+course_title varchar(255) NOT NULL,
+course_department i' at line 2
+mysql> CREATE TABLE course (
+    -> course_id int NOT NULL AUTO_INCREMENT,
+    -> course_title varchar(255) NOT NULL,
+    -> course_department int DEFAULT NULL,
+    -> credit_hours float NOT NULL,
+    -> PRIMARY KEY (course_id)
+    -> FOREIGN KEY (course_department) REFERENCES departments(departmend_id)
+    -> ) ENGINE=InnoDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FOREIGN KEY (course_department) REFERENCES departments(departmend_id)
+) ENGINE=I' at line 7
+mysql>      course_id int NOT NULL AUTO_INCREMENT,
+    ->     -> course_title varchar(255) NOT NULL,
+    ->     -> course_department int DEFAULT NULL,
+    ->     -> credit_hours float NOT NULL,
+    ->     -> PRIMARY KEY (course_id)
+    ->     -> FOREIGN KEY (course_department) REFERENCES
+    -> )
+    -> ENGINE=InnoDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'course_id int NOT NULL AUTO_INCREMENT,
+    -> course_title varchar(255) NOT NULL' at line 1
+mysql> CREATE TABLE course (
+    ->     -> course_id int NOT NULL AUTO_INCREMENT,
+    ->     -> course_title varchar(255) NOT NULL,
+    ->     -> course_department int DEFAULT NULL,
+    ->     -> FOREIGN KEY (course_department) REFERENCES departments(department_id)
+    -> ) ENGINE=InnoDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> course_id int NOT NULL AUTO_INCREMENT,
+    -> course_title varchar(255) NOT N' at line 2
+mysql> CREATE TABLE course (
+    -> course_id int NOT NULL AUTO_INCREMENT,
+    -> course_title varchar(255) NOT NULL,
+    -> course_department int DEFAULT NULL,
+    -> PRIMARY KEY (course_id)
+    -> FOREIGN KEY (course_department) REFERENCES departments(department_id)
+    -> ) ENGINE=InnoDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FOREIGN KEY (course_department) REFERENCES departments(department_id)
+) ENGINE=I' at line 6
+mysql> CREATE TABLE course (
+    -> course_id int NOT NULL AUTO_INCREMENT,
+    -> course_title varchar(255) NOT NULL,
+    -> course_department int DEFAULT NULL,
+    -> credit_hours float NOT NULL,
+    -> PRIMARY KEY (course_id),
+    -> FOREIGN KEY (course_department) REFERENCES departments(department_id)
+    -> Engine=InnoDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Engine=InnoDB' at line 8
+mysql> CREATE TABLE course (
+    -> course_id int NOT NULL AUTO_INCREMENT,
+    -> course_title varchar(255) NOT NULL,
+    -> course_department int DEFAULT NULL,
+    -> credit_hours float NOT NULL,
+    -> PRIMARY KEY (course_id),
+    -> FOREIGN KEY (course_department) REFERENCES departments(department_id)
+    -> ) Engine=InnoDB;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> CREATE TABLE textbooks (
+    -> textbook_id int NOT NULL AUTO_INCREMENT,
+    -> textbook_title varchar(255) NOT NULL,
+    -> textbook_author varchar(255) NOT NULL,
+    -> textbook_cost float NOT NULL,
+    -> textbook_edition int NOT NULL,
+    -> year_published int(4) NOT NULL,
+    -> number_pages int(5) NOT NULL,
+    -> publisher varchar(255) NOT NULL,
+    -> course_id int DEFAULT NULL,
+    -> PRIMARY KEY (textbook_id),
+    -> FOREIGN KEY (course_id) REFERENCES course(course_id)
+    -> ) Engine=InnoDB;
+Query OK, 0 rows affected (11.09 sec)
+
+mysql> INSERT INTO departments (
+    -> department_name
+    -> ) VALUES
+    -> ('Mathematics'),
+    -> ('English'),
+    -> ('Chemistry'),
+    -> ('Physics'),
+    -> ('Art');
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO course (
+    -> course_title,
+    -> course_department,
+    -> credit_hours
+    -> ) VALUES
+    -> ('Calculus', (SELECT course_department FROM departments WHERE department_name = 'Mathematics'), '4.0'),
+    -> ('British Literature I', (SELECT course_department FROM departments WHERE department_name = 'English'), '3.0'),
+    -> ('Intro to Thermodynamics', (SELECT course_department FROM departments WHERE department_name = 'Physics'), '4.0'),
+    -> ('Organic Biochemistry', (SELECT course_department FROM departments WHERE department_name = 'Chemistry'), '4.0'),
+    -> ('Studio Art I', (SELECT course_department FROM departments WHERE department_name = 'Art'), '2.0');
+ERROR 1054 (42S22): Unknown column 'course_department' in 'field list'
+mysql> INSERT INTO course (
+    -> course_title,
+    -> course_department,
+    -> credit_hours
+    -> ) VALUES
+    -> ('Calculus', (SELECT course_department FROM departments WHERE department_name = 'Mathematics'), '4.0');
+ERROR 1054 (42S22): Unknown column 'course_department' in 'field list'
+mysql> INSERT INTO course (
+    -> course_title,
+    -> credit_hours,
+    -> course_department
+    -> ) VALUES
+    -> ('Calculus', '4.0', (SELECT course_department FROM departments WHERE department_name = 'Mathematics'));
+ERROR 1054 (42S22): Unknown column 'course_department' in 'field list'
+mysql> SHOW [FULL] TABLES [{FROM | IN} hm968_db_2]
+    -> 
+    -> [ ]
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[FULL] TABLES [{FROM | IN} hm968_db_2]
+
+[ ]' at line 1
+mysql> SHOW TABLES
+    -> ;
++----------------------+
+| Tables_in_hm968_db_2 |
++----------------------+
+| course               |
+| departments          |
+| textbooks            |
++----------------------+
+3 rows in set (0.03 sec)
+
+mysql> SHOW FULL TABLES
+    -> ;
++----------------------+------------+
+| Tables_in_hm968_db_2 | Table_type |
++----------------------+------------+
+| course               | BASE TABLE |
+| departments          | BASE TABLE |
+| textbooks            | BASE TABLE |
++----------------------+------------+
+3 rows in set (0.02 sec)
+
+mysql> SHOW TABLES LIKE 'DEPARTMENTS'
+    -> ;
+Empty set (0.00 sec)
+
+mysql> 
+mysql> DESCRIBE course
+    -> ;
++-------------------+--------------+------+-----+---------+----------------+
+| Field             | Type         | Null | Key | Default | Extra          |
++-------------------+--------------+------+-----+---------+----------------+
+| course_id         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| course_title      | varchar(255) | NO   |     | NULL    |                |
+| course_department | int(11)      | YES  | MUL | NULL    |                |
+| credit_hours      | float        | NO   |     | NULL    |                |
++-------------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+mysql> SHOW course
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'course' at line 1
+mysql> SHOW departments;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'departments' at line 1
+mysql> DESCRIBE departments;
++-----------------+--------------+------+-----+---------+----------------+
+| Field           | Type         | Null | Key | Default | Extra          |
++-----------------+--------------+------+-----+---------+----------------+
+| department_id   | int(11)      | NO   | PRI | NULL    | auto_increment |
+| department_name | varchar(255) | NO   |     | NULL    |                |
++-----------------+--------------+------+-----+---------+----------------+
+2 rows in set (0.01 sec)
+
+mysql> INSERT INTO course (
+    -> credit_hours,
+    -> course_name,
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+mysql> INSERT INTO course (
+    -> course_name,
+    -> department_id,
+    -> credit_hours
+    -> ) VALUES
+    -> ('Calculus', (SELECT department_id FROM departments WHERE department_name = 'Mathematics'), '4.0')
+    -> ('Intro to Thermodynamics', (SELECT department_id FROM departments WHERE department_name = 'Physics'), '4.0')
+    -> ('Organic Biochemistry', (SELECT department_id FROM departments WHERE department_name = 'Chemistry'), '4.0')
+    -> ('British Literature I', (SELECT department_id FROM departments WHERE department_name = 'English'), '3.0')
+    -> ('Studio Art I', (SELECT department_id FROM departments WHERE department_name = 'Art'), '2.0');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('Intro to Thermodynamics', (SELECT department_id FROM departments WHERE departm' at line 7
+mysql> INSERT INTO course (
+    -> course_name,
+    -> department_id,
+    -> credit_hours
+    -> ) VALUES
+    -> ('Calculus', (SELECT department_id FROM departments WHERE department_name = 'Mathematics'), '4.0'),
+    -> ('Intro to Thermodynamics', (SELECT department_id FROM departments WHERE department_name = 'Physics'), '4.0'),
+    -> ('Organic Biochemistry', (SELECT department_id FROM departments WHERE department_name = 'Chemistry'), '4.0'),
+    -> ('British Literature I', (SELECT department_id FROM departments WHERE department_name = 'English'), '3.0'),
+    -> ('Studio Art I', (SELECT department_id FROM departments WHERE department_name = 'Art'), '2.0');
+ERROR 1054 (42S22): Unknown column 'course_name' in 'field list'
+mysql> INSERT INTO course (
+    -> course_title,
+    -> department_id,
+    -> credit_hours
+    -> ) VALUES
+    -> ('Calculus', (SELECT department_id FROM departments WHERE department_name = 'Mathematics'), '4.0'),
+    -> ('Intro to Thermodynamics', (SELECT department_id FROM departments WHERE department_name = 'Physics'), '4.0'),
+    -> ('Organic Biochemistry', (SELECT department_id FROM departments WHERE department_name = 'Chemistry'), '4.0'),
+    -> ('British Literature I', (SELECT department_id FROM departments WHERE department_name = 'English'), '3.0'),
+    -> ('Studio Art I', (SELECT department_id FROM departments WHERE department_name = 'Art'), '2.0');
+ERROR 1054 (42S22): Unknown column 'department_id' in 'field list'
+mysql> DROP course
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'course' at line 1
+mysql> DROP TABLE course
+    -> ;
+ERROR 1217 (23000): Cannot delete or update a parent row: a foreign key constraint fails
+mysql> DROP TABLE textbooks
+    -> ;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> DROP TABLE course;
+Query OK, 0 rows affected (3.54 sec)
+
+mysql> course_id int NOT NULL AUTO_INCREMENT,
+    -> course_title varchar(255) NOT NULL,
+    -> department_id int DEFAULT NULL,
+    -> credit_hours float NOT NULL,
+    -> PRIMARY KEY (course_id),
+    -> FOREIGN KEY (department_id) REFERENCES departments(department_id)
+    -> ) Engine=InnoDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'course_id int NOT NULL AUTO_INCREMENT,
+course_title varchar(255) NOT NULL,
+depar' at line 1
+mysql> CREATE TABLE course (
+    -> course_id int NOT NULL AUTO_INCREMENT,
+    -> course_title varchar(255) NOT NULL,
+    -> department_id int DEFAULT NULL,
+    -> credit_hours float NOT NULL,
+    -> PRIMARY KEY (course_id),
+    -> FOREIGN KEY (department_id) REFERENCES departments(department_id)
+    -> ) Engine=InnoDB;
+Query OK, 0 rows affected (0.41 sec)
+
+mysql> CREATE TABLE textbooks (
+    -> textbook_id int NOT NULL AUTO_INCREMENT,
+    -> title varchar(255) NOT NULL,
+    -> author varchar(255) NOT NULL,
+    -> cost float NOT NULL,
+    -> edition int NOT NULL,
+    -> year_published int(4) NOT NULL,
+    -> number_pages int(5) NOT NULL,
+    -> publisher varchar(255) NOT NULL,
+    -> course_id int DEFAULT NULL,
+    -> PRIMARY KEY (textbook_id),
+    -> FOREIGN KEY (course_id) REFERENCES course(course_id)
+    -> ) Engine=InnoDB;
+Query OK, 0 rows affected (1.08 sec)
+
+mysql> INSERT INTO course (
+    -> course_title,
+    -> department_id,
+    -> credit_hours
+    -> VALUES
+    -> ('Calculus', (SELECT department_id FROM departments WHERE department_name = 'Mathematics'), '4.0'),
+    -> ('Intro to Thermodynamics', (SELECT department_id FROM departments WHERE department_name = 'Physics'), '4.0'),
+    -> ('Organic Biochemistry', (SELECT department_id FROM departments WHERE department_name = 'Chemistry'), '4.0'),
+    -> ('British Literature I', (SELECT department_id FROM departments WHERE department_name = 'English'), '3.0'),
+    -> ('Studio Art I', (SELECT department_id FROM departments WHERE department_name = 'Art'), '2.0');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VALUES
+('Calculus', (SELECT department_id FROM departments WHERE department_name' at line 5
+mysql> INSERT INTO course (
+    -> course_title,
+    -> department_id,
+    -> credit_hours
+    -> ) VALUES
+    -> ('Calculus', (SELECT department_id FROM departments WHERE department_name = 'Mathematics'), '4.0'),
+    -> ('Intro to Thermodynamics', (SELECT department_id FROM departments WHERE department_name = 'Physics'), '4.0'),
+    -> ('Organic Biochemistry', (SELECT department_id FROM departments WHERE department_name = 'Chemistry'), '4.0'),
+    -> ('British Literature I', (SELECT department_id FROM departments WHERE department_name = 'English'), '3.0'),
+    -> ('Studio Art I', (SELECT department_id FROM departments WHERE department_name = 'Art'), '2.0');
+Query OK, 5 rows affected (0.17 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO textbooks (
+    -> title,
+    -> author,
+    -> cost,
+    -> edition,
+    -> year_published,
+    -> number_pages,
+    -> publisher,
+    -> course_id
+    -> ) VALUES
+    -> ('Thermodynamics are Cool', 'Albert Einstein', '342.95', '3', '1924', '3524', 'Harvard University Press', (SELECT course_id FROM course WHERE course_name = 'Intro to Thermodynamics')),
+    -> ('Thermodynamics 101', 'Physics Guy', '643.43', '1', '2004', '232', 'Random House', (SELECT course_id FROM course WHERE course_name = 'Intro to Thermodynamics')),
+    -> ('Hamlet', 'William Shakespeare', '15.32', '1', '1609', '123', 'Gutenberg Press', (SELECT course_id FROM course WHERE course_name = 'British Literature I')),
+    -> ('Beowulf', 'Anglo-Saxon Poet', '14.54', '5', '1000', '321', 'Gutenberg Press', (SELECT course_id FROM course WHERE course_name = 'British Literature I')),
+    -> ('Chemistry is Cool', 'Kurt Alder', '423.43', '3', '1934', '3242', 'Oxford University Press', (SELECT course_id FROM course WHERE course_name = 'Organic Biochemistry')),
+    -> ('Chemistry is Way Cool', 'Joseph Priestley', 421.54', '2', '1994', '432', 'Penguin', (SELECT course_id FROM course WHERE course_name = 'Organic Biochemistry')),
+    '> ('Calculus is Fun', 'Math Guy', '653.32', '3', '1989', '4231', 'Harcourt', (SELECT course_id FROM course WHERE course_name = 'Calculus')),
+    '> (Calculus is Amazing', 'Isaac Newton', '834.21', '2', '1004', '4123', 'Newton Press', (SELECT course_id FROM course WHERE course_name = 'Calculus')),
+    -> ('How to Art', 'Claude Monet', '348.21', '5', '1837', '432', 'Art Press', (SELECT course_id FROM course WHERE course_name = 'Studio Art I')),
+    -> ('Art is the Best', 'Vincent van Gogh', '413.64', '4', '1789', '132', 'Van Gogh Press', (SELECT course_id FROM course WHERE course_name = 'Studio Art I'));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '', '2', '1994', '432', 'Penguin', (SELECT course_id FROM course WHERE course_nam' at line 16
+mysql> INSERT INTO textbooks (
+    -> title,
+    -> author,
+    -> cost,
+    -> edition,
+    -> year_published,
+    -> number_pages,
+    -> publisher,
+    -> course_id
+    -> ) VALUES
+    -> ('Thermodynamics are Cool', 'Albert Einstein', '342.95', '3', '1924', '3524', 'Harvard University Press', (SELECT course_id FROM course WHERE course_name = 'Intro to Thermodynamics')),
+    -> ('Thermodynamics 101', 'Physics Guy', '643.43', '1', '2004', '232', 'Random House', (SELECT course_id FROM course WHERE course_name = 'Intro to Thermodynamics')),
+    -> ('Hamlet', 'William Shakespeare', '15.32', '1', '1609', '123', 'Gutenberg Press', (SELECT course_id FROM course WHERE course_name = 'British Literature I')),
+    -> ('Beowulf', 'Anglo-Saxon Poet', '14.54', '5', '1000', '321', 'Gutenberg Press', (SELECT course_id FROM course WHERE course_name = 'British Literature I')),
+    -> ('Chemistry is Cool', 'Kurt Alder', '423.43', '3', '1934', '3242', 'Oxford University Press', (SELECT course_id FROM course WHERE course_name = 'Organic Biochemistry')),
+    -> ('Chemistry is Way Cool', 'Joseph Priestley', '421.54', '2', '1994', '432', 'Penguin', (SELECT course_id FROM course WHERE course_name = 'Organic Biochemistry')),
+    -> ('Calculus is Fun', 'Math Guy', '653.32', '3', '1989', '4231', 'Harcourt', (SELECT course_id FROM course WHERE course_name = 'Calculus')),
+    -> ('Calculus is Amazing', 'Isaac Newton', '834.21', '2', '1004', '4123', 'Newton Press', (SELECT course_id FROM course WHERE course_name = 'Calculus')),
+    -> ('How to Art', 'Claude Monet', '348.21', '5', '1837', '432', 'Art Press', (SELECT course_id FROM course WHERE course_name = 'Studio Art I')),
+    -> ('Art is the Best', 'Vincent van Gogh', '413.64', '4', '1789', '132', 'Van Gogh Press', (SELECT course_id FROM course WHERE course_name = 'Studio Art I'));
+ERROR 1054 (42S22): Unknown column 'course_name' in 'where clause'
+mysql> INSERT INTO textbooks (
+    -> title,
+    -> author,
+    -> cost,
+    -> edition,
+    -> year_published,
+    -> number_pages,
+    -> publisher,
+    -> course_id
+    -> ) VALUES
+    -> ('Thermodynamics are Cool', 'Albert Einstein', '342.95', '3', '1924', '3524', 'Harvard University Press', (SELECT course_id FROM course WHERE course_title = 'Intro to Thermodynamics')),
+    -> ('Thermodynamics 101', 'Physics Guy', '643.43', '1', '2004', '232', 'Random House', (SELECT course_id FROM course WHERE course_title = 'Intro to Thermodynamics')),
+    -> ('Hamlet', 'William Shakespeare', '15.32', '1', '1609', '123', 'Gutenberg Press', (SELECT course_id FROM course WHERE course_title = 'British Literature I')),
+    -> ('Beowulf', 'Anglo-Saxon Poet', '14.54', '5', '1000', '321', 'Gutenberg Press', (SELECT course_id FROM course WHERE course_title = 'British Literature I')),
+    -> ('Chemistry is Cool', 'Kurt Alder', '423.43', '3', '1934', '3242', 'Oxford University Press', (SELECT course_id FROM course WHERE course_title = 'Organic Biochemistry')),
+    -> ('Chemistry is Way Cool', 'Joseph Priestley', '421.54', '2', '1994', '432', 'Penguin', (SELECT course_id FROM course WHERE course_title = 'Organic Biochemistry')),
+    -> ('Calculus is Fun', 'Math Guy', '653.32', '3', '1989', '4231', 'Harcourt', (SELECT course_id FROM course WHERE course_title = 'Calculus')),
+    -> ('Calculus is Amazing', 'Isaac Newton', '834.21', '2', '1004', '4123', 'Newton Press', (SELECT course_id FROM course WHERE course_title = 'Calculus')),
+    -> ('How to Art', 'Claude Monet', '348.21', '5', '1837', '432', 'Art Press', (SELECT course_id FROM course WHERE course_title = 'Studio Art I')),
+    -> ('Art is the Best', 'Vincent van Gogh', '413.64', '4', '1789', '132', 'Van Gogh Press', (SELECT course_id FROM course WHERE course_title = 'Studio Art I'));
+Query OK, 10 rows affected (0.04 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT course_title FROM course ORDER BY course_title;
++-------------------------+
+| course_title            |
++-------------------------+
+| British Literature I    |
+| Calculus                |
+| Intro to Thermodynamics |
+| Organic Biochemistry    |
+| Studio Art I            |
++-------------------------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT course_title, department_id FROM course WHERE course_title != 'Organic Biochemistry' OR 'Intro to Thermodynamics';
++-------------------------+---------------+
+| course_title            | department_id |
++-------------------------+---------------+
+| Calculus                |             1 |
+| Intro to Thermodynamics |             4 |
+| British Literature I    |             2 |
+| Studio Art I            |             5 |
++-------------------------+---------------+
+4 rows in set, 1 warning (0.01 sec)
+
+mysql> SELECT course_title, department_id FROM course WHERE course_title != 'Organic Biochemistry' OR course_title != 'Intro to Thermodynamics';
++-------------------------+---------------+
+| course_title            | department_id |
++-------------------------+---------------+
+| Calculus                |             1 |
+| Intro to Thermodynamics |             4 |
+| Organic Biochemistry    |             3 |
+| British Literature I    |             2 |
+| Studio Art I            |             5 |
++-------------------------+---------------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT course_title, department_id FROM course WHERE course_title != 'Organic Biochemistry' OR course_title = 'Intro to Thermodynamics';
++-------------------------+---------------+
+| course_title            | department_id |
++-------------------------+---------------+
+| Calculus                |             1 |
+| Intro to Thermodynamics |             4 |
+| British Literature I    |             2 |
+| Studio Art I            |             5 |
++-------------------------+---------------+
+4 rows in set (0.01 sec)
+
+mysql> 
